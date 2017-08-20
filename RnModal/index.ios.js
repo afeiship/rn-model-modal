@@ -17,6 +17,7 @@ import {
 } from 'react-native';
 
 import Modal2 from 'react-native-modal';
+import Modal3 from  'react-native-modalbox';
 
 export default class RnModal extends Component {
 
@@ -32,6 +33,15 @@ export default class RnModal extends Component {
   _showModal = () => this.setState({ isModalVisible: true })
   
   _hideModal = () => this.setState({ isModalVisible: false })
+
+  _onPress3 = () => {
+    this.refs.md3.open();
+  };
+  
+
+  _onPress4 = () => {
+    this.refs.md3.close();
+  };
   
 
 
@@ -53,6 +63,14 @@ export default class RnModal extends Component {
             </View>
           </Modal2>
         </View>
+
+        <Button title="show model3[Recommand!!!]" onPress={this._onPress3} />
+
+
+        <Modal3 style={{ height:400}} backdrop={true} coverScreen={false}  position={"bottom"} ref={"md3"}>
+          <Text style={{ padding:40 }}>Modal on top[Recommand!!!]</Text>
+          <Button title="close modal" onPress={this._onPress4} />
+        </Modal3>
 
         <Modal
           animationType="slide"
